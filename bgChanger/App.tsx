@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const App = () => {
+  const [randomColor, setRandomColor] = useState('fff');
+  const changeBackgroundColor = () => {
+    setRandomColor(Math.floor(Math.random() * 16777215).toString(16));
+  };
+
   return (
     <>
-      <View style={styles.container}>
-        <TouchableOpacity>
+      <View style={[styles.container, {backgroundColor: '#' + randomColor}]}>
+        <TouchableOpacity onPress={changeBackgroundColor}>
           <Text style={styles.text}>Click me</Text>
         </TouchableOpacity>
       </View>
@@ -18,7 +23,6 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgb(32,0,126)',
     alignItems: 'center',
     justifyContent: 'center',
   },
