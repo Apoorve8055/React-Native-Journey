@@ -1,17 +1,32 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 const App = () => {
-  const [randomColor, setRandomColor] = useState('fff');
+  const [randomColor, setRandomColor] = useState('#fff');
+
   const changeBackgroundColor = () => {
-    setRandomColor(Math.floor(Math.random() * 16777215).toString(16));
+    setRandomColor('#' + Math.floor(Math.random() * 16777215).toString(16));
+  };
+  const restBackgroundColor = () => {
+    setRandomColor('#fff');
   };
 
   return (
     <>
-      <View style={[styles.container, {backgroundColor: '#' + randomColor}]}>
+      <StatusBar backgroundColor={randomColor} />
+      <View style={[styles.container, {backgroundColor: randomColor}]}>
         <TouchableOpacity onPress={changeBackgroundColor}>
           <Text style={styles.text}>Click me</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={restBackgroundColor}>
+          <Text style={styles.text}>rest</Text>
         </TouchableOpacity>
       </View>
     </>
@@ -30,9 +45,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#BB2CD9',
     color: '#fff',
     fontSize: 24,
+    margin: 8,
     paddingHorizontal: 40,
-    paddingVertical: 10,
-    borderRadius: 15,
+    paddingVertical: 8,
+    borderRadius: 16,
     textTransform: 'uppercase',
   },
 });
