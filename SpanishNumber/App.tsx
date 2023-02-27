@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {
   Image,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -24,18 +23,14 @@ import ten from './assets/music/ten.wav';
 import Sound from 'react-native-sound';
 import {styles} from './AppStyleSheet';
 
+const musicArr = [one, two, three, four, five, six, seven, eight, nine, ten];
+const sounds = musicArr.map(music => new Sound(music, Sound.MAIN_BUNDLE));
+
 const App = () => {
-  const MusicArr = [one, two, three, four, five, six, seven, eight, nine, ten];
-
-  const playMusic = music => {
-    const sound = new Sound(music, Sound.MAIN_BUNDLE, error => {
-      if (error) console.log('failed to load the sound', error);
-    });
-
-    setTimeout(() => {
-      sound.play();
-    }, 200);
-  };
+  const playMusic = useCallback(index => {
+    const sound = sounds[index];
+    sound.play();
+  }, []);
 
   return (
     <>
@@ -45,11 +40,11 @@ const App = () => {
         </View>
         <ScrollView>
           <View style={styles.row}>
-            {MusicArr.map((sound, index) => (
+            {musicArr.map((_, index) => (
               <TouchableOpacity
                 style={styles.box}
                 key={index}
-                onPress={() => playMusic(sound)}>
+                onPress={() => playMusic(index)}>
                 <Text style={styles.text}>{index + 1}</Text>
               </TouchableOpacity>
             ))}
