@@ -1,8 +1,8 @@
 # React-Native-Journey
 I am pleased to present my React Native journey, accompanied by the projects I have developed throughout my learning process, all of which are included in this repository.
 
-[1] <a href="https://github.com/Apoorve8055/React-Native-Journey/tree/master/bgChanger">BGChanger App</a> <br>
-[2] <a href="https://github.com/Apoorve8055/React-Native-Journey/tree/master/DiceRoller">DiceRoller App - Image Handle </a><br>
+[1] <a href="https://github.com/Apoorve8055/React-Native-Journey/tree/master/bgChanger">BGChanger App - Basic App</a> <br>
+[2] <a href="https://github.com/Apoorve8055/React-Native-Journey/tree/master/DiceRoller">DiceRoller App - Handle Image</a><br>
 [3] <a href="https://github.com/Apoorve8055/React-Native-Journey/tree/master/SpanishNumber">SpanishNumber - Handle Sound  </a><br>
 [4] <a href="https://github.com/Apoorve8055/React-Native-Journey/tree/master/CurrencyApp">Currency App - Handle User Input  </a><br>
 [5] <a href="https://github.com/Apoorve8055/React-Native-Journey/tree/master/ClickProfilePicApp">ClickProfilePic App - Handle Camera</a> <br>
